@@ -3,6 +3,9 @@
 //create a variable named express that has a value of the express library
 const express = require('express');
 
+const log = require('morgan');
+const http = require("http");
+
 // asign variable app as a function
 const app = express();
 
@@ -14,6 +17,7 @@ app.get("/", (req, res) => {
 
 //calling app function using the method listening with a parameter of 3000 and prints a string 
 //listening on the local host 3000 port
-app.listen(3000, () => {
+http.createServer(app).listen(3000, () => {
     console.log("started on port 3000.")
+    console.log("http://localhost:3000")
 });
